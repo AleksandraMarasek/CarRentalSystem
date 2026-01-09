@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarRentalSystem;
+namespace CarRentalSystem.Vehicles;
 
-class ManualCar : Vehicle
+class Motorcycle : Vehicle
 {
     public override decimal RentalCost(int days)
     {
-        return PricePerDay * days;
+        return PricePerDay * days * 0.8m;
     }
 }
