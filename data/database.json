@@ -43,56 +43,24 @@
     "$type": "van",
     "Brand": "Ford",
     "Model": "Transit",
-    "Year": 0,
+    "Year": 2005,
     "PricePerDay": 200,
     "IsRented": false
   },
   {
     "$type": "manual",
     "Brand": "Opel",
-    "Model": "Astra",
-    "Year": 1998,
-    "PricePerDay": 40,
+    "Model": "Astra Turbo",
+    "Year": 2013,
+    "PricePerDay": 90,
     "IsRented": false
   },
   {
     "$type": "automatic",
-    "Brand": "BMW",
-    "Model": "X5",
-    "Year": 2020,
-    "PricePerDay": 120,
-    "IsRented": false
-  },
-  {
-    "$type": "manual",
-    "Brand": "Toyota",
-    "Model": "Corolla",
-    "Year": 2015,
-    "PricePerDay": 60,
-    "IsRented": false
-  },
-  {
-    "$type": "motorcycle",
-    "Brand": "Yamaha",
-    "Model": "YZF-R3",
+    "Brand": "Volkswagen",
+    "Model": "Passat",
     "Year": 2019,
-    "PricePerDay": 50,
-    "IsRented": false
-  },
-  {
-    "$type": "automatic",
-    "Brand": "Audi",
-    "Model": "A6",
-    "Year": 2018,
     "PricePerDay": 110,
-    "IsRented": false
-  },
-  {
-    "$type": "van",
-    "Brand": "Ford",
-    "Model": "Transit",
-    "Year": 0,
-    "PricePerDay": 200,
     "IsRented": false
   }
 ]

@@ -1,0 +1,41 @@
+[
+  {
+    "$type": "employee",
+    "Role": "Employee",
+    "Discount": 0.8,
+    "Name": "Ola",
+    "Password": "12"
+  },
+  {
+    "$type": "customer",
+    "Role": "Customer",
+    "Name": "Filip",
+    "Password": "32"
+  },
+  {
+    "$type": "employee",
+    "Role": "Employee",
+    "Discount": 0.8,
+    "Name": "Ola",
+    "Password": "12"
+  },
+  {
+    "$type": "customer",
+    "Role": "Customer",
+    "Name": "Filip",
+    "Password": "32"
+  },
+  {
+    "$type": "employee",
+    "Role": "Employee",
+    "Discount": 0.8,
+    "Name": "Ola",
+    "Password": "12"
+  },
+  {
+    "$type": "customer",
+    "Role": "Customer",
+    "Name": "Filip",
+    "Password": "32"
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "VehicleModel": "X5",
+    "UserName": "Ola",
+    "Days": 10,
+    "FinalCost": 1104.000,
+    "Date": "2026-01-09T12:05:03.2176131+00:00"
+  },
+  {
+    "VehicleModel": "Passat",
+    "UserName": "Filip",
+    "Days": 6,
+    "FinalCost": 759.00,
+    "Date": "2026-01-09T12:05:45.6625527+00:00"
+  }
+]

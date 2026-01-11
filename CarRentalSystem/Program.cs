@@ -3,66 +3,44 @@
 RentalSystem rentalSystem = new RentalSystem();
 rentalSystem.LoadData();
 
-/*
-rentalSystem.AddVehicle(new ManualCar
+rentalSystem.AddUser(new Employee { Name = "Ola", Password = "12" });
+rentalSystem.AddUser(new Customer { Name = "Filip", Password = "32" });
+
+
+Console.WriteLine("Welcome to Car Rental!");
+Console.WriteLine("\nWhen choosing a car type in its model. (Example Opel Astra -> Astra)\n");
+
+Console.Write("Name: ");
+string name = Console.ReadLine() ?? "";
+Console.Write("Password: ");
+string pass = Console.ReadLine() ?? "";
+
+Person? currentUser = rentalSystem.Login(name, pass);
+
+if (currentUser == null)
 {
-    Brand = "Opel",
-    Model = "Astra",
-    Year = 1998,
-    PricePerDay = 40
-});
-rentalSystem.AddVehicle(new AutomaticCar
-{
-    Brand = "BMW",
-    Model = "X5",
-    Year = 2020,
-    PricePerDay = 120
-});
-rentalSystem.AddVehicle(new ManualCar
-{
-    Brand = "Toyota",
-    Model = "Corolla",
-    Year = 2015,
-    PricePerDay = 60
-});
-rentalSystem.AddVehicle(new Motorcycle
-{
-    Brand = "Yamaha",
-    Model = "YZF-R3",
-    Year = 2019,
-    PricePerDay = 50
-});
-rentalSystem.AddVehicle(new AutomaticCar
-{
-    Brand = "Audi",
-    Model = "A6",
-    Year = 2018,
-    PricePerDay = 110
-});
-rentalSystem.AddVehicle(new Van
-{
-    Brand = "Ford",
-    Model = "Transit",
-    PricePerDay = 200
-});
-*/
+    Console.WriteLine("Login failed!");
+    return;
+}
+
+Console.WriteLine($"\nLogged in as: {currentUser.Name} ({currentUser.Role})");
 
 bool running = true;
 while (running)
 {
     Console.WriteLine("\n----- Car Rental System -----");
-    Console.WriteLine("\nWhen choosing a car type in its model. (Example Opel Astra -> Astra)\n\n");
-
     Console.WriteLine("1. Show Available vehicles");
-    Console.WriteLine("2. Choose  your vehicle");
-    Console.WriteLine("3. Show total revenue");
+    Console.WriteLine("2. Rent vehicle");
+    if (currentUser is Employee)
+    {
+        Console.WriteLine("3. View History & Revenue");
+    }
     Console.WriteLine("4. Return vehicle");
     Console.WriteLine("5. Exit");
     Console.Write("\nEnter number: ");
 
-    string choice = Console.ReadLine() ?? "";
 
-    switch (choice)
+    switch (Console.ReadLine())
     {
         case "1":
             rentalSystem.ShowAvailableVehicles();
@@ -72,14 +50,19 @@ while (running)
             string model = Console.ReadLine() ?? "";
             Console.Write("For how many days? ");
             if (int.TryParse(Console.ReadLine(), out int days))
-                rentalSystem.RentVehicle(model, days);
+                rentalSystem.RentVehicle(model, days, currentUser);
             break;
         case "3":
-            Console.WriteLine($"\nTotal revenue: {rentalSystem.TotalRevenue} PLN");
+            if (currentUser is Employee)
+            {
+                rentalSystem.ShowHistory();
+                Console.WriteLine($"Total Revenue: {rentalSystem.TotalRevenue} PLN");
+            }
             break;
         case "4":
             Console.Write("Enter model to return: ");
-            rentalSystem.ReturnVehicle(Console.ReadLine());
+            string ret = Console.ReadLine() ?? "";
+            rentalSystem.ReturnVehicle(ret);
             break;
         case "5":
             rentalSystem.SaveData();
@@ -87,3 +70,11 @@ while (running)
             break;
     }
 }
+
+/*
+ HOW TO RUN IN DOCKER:
+
+docker build -t car-app .
+docker run -it --rm -v ${PWD}/data:/app/data car-app
+ 
+ */
